@@ -1,0 +1,137 @@
+@charset "utf-8";
+* {
+ padding: 0;
+ margin: 0;
+}
+body {
+ background-color: #F2EFEA;
+ color: #666666;
+ font-size: 12px;
+}
+#wrapper {
+ width: 955px;
+ margin: 0 auto;
+}
+#header {
+ border: 1px solid #ccc;
+ margin: 5px;
+ height: 70px;
+ padding: 10px;
+ background:url(images/banner.jpg);
+ background-color: #C9C9BE;
+}
+#navbar {
+ border: 1px solid #ccc;
+ margin: 5px;
+ padding: 4px;
+ background-color: #F0E7D9;
+}
+#leftcolumn { /* Parent Wrapper for inside boxes */
+ margin: 0 5px 5px 5px;
+ padding: 4px;
+ display: inline; /* IE Hack */
+ width: 100%;
+ float: left;
+ border: 1px solid #ccc;
+ background-color: #E7E9E2;
+ min-height: 10px;
+}
+* html #leftcolumn {height:10px} /* IE Min-Height Hack */ 
+
+#centercolumn {
+ border: 1px solid #ccc;
+ margin: 0 0px 5px 0px;
+ display: inline; /* IE Hack */
+ padding: 4px;
+ width: 100%;
+ float: left;
+ min-height: 300px;
+	background-color : rgb(255,255,255);
+	background-image : url(images/content_bg.png);
+/* 	background-attachment : fixed; */
+	background-position : bottom right;
+	background-repeat : no-repeat;
+}
+* html #centercolumn {height:300px} /* IE Min-Height Hack */ 
+
+#rightcolumn {
+ border: 1px solid #ccc;
+ margin: 0 5px 5px 0;
+ display: inline; /* IE Hack */
+ padding: 4px;
+ width: 159px;
+ float: left;
+ background-color: #C6AA9D;
+ min-height: 300px;
+}
+* html #rightcolumn {height:300px} /* IE Min-Height Hack */ 
+
+#footer {
+ background-color: #71684B;
+ color: #ffffff;
+ font-size: 12px;
+ margin: 0 5px 5px 5px;
+ display: inline; /* IE Hack */
+ padding: 4px;
+ float: left;
+ width: 98.1%;
+}
+
+
+/*-----------for password change form-----------------------*/
+ label
+{
+width: 4em;
+float: left;
+text-align: right;
+margin-right: 0.5em;
+display: block;
+}
+
+.submit input
+{
+margin-left: 1.5em;
+}
+input
+{
+color: #781351;
+background: #fee3ad;
+border: 1px solid #781351;
+
+}
+
+.submit input
+{
+color: #000;
+background: #ffa20f;
+border: 2px outset #d7b9c9;
+}
+fieldset
+{
+border: 1px solid #781351;
+width: 25em;
+}
+
+legend
+{
+color: #fff;
+background: #ffa20c;
+border: 1px solid #781351;
+padding: 2px 6px;
+}
+
+#centercolumnstop {
+ border: 1px solid #ccc;
+ margin: 0 0px 5px 0px;
+ display: inline; /* IE Hack */
+ padding: 4px;
+ width: 100%;
+ float: left;
+ min-height: 300px;
+	background-color : rgb(255,255,255);
+/*	background-image : url(images/content_bg.png); */
+/* 	background-attachment : fixed; */
+	background-position : bottom right;
+	background-repeat : no-repeat;
+}
+* html #centercolumnstop {height:300px} /* IE Min-Height Hack */ 
