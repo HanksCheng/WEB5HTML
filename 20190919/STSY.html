@@ -1,0 +1,625 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0100)https://webs.asia.edu.tw/stdinfo/main.asp?FID=MzAzMzQxMCwyLDEwNzAyMTA0NyxNekF6TXpReE1BLDI4MzY0MTcwOQ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Asia University, Taiwan學生資訊系統</title>
+
+<link rel="stylesheet" type="text/css" href="./STSY_files/main.css">
+<link href="./STSY_files/dropdowntab.css" rel="stylesheet" type="text/css">
+ <script src="./STSY_files/jquery.min.js.下載" type="text/javascript"></script>
+ <script src="./STSY_files/jquery-ui.js.下載" type="text/javascript"></script>
+<link href="./STSY_files/jquery-ui.css" rel="stylesheet" type="text/css">    
+
+<script type="text/javascript">
+    
+    $("[id*=btnTest]").live("click", function () {
+        var PNo = $('#PNo').val();
+        var enStdNo = $('#enStdNo').val();
+        jQuery.support.cors = true;
+        $("#modal_dialog").dialog({
+            title: "來自家長關懷網的訊息",
+            resizable: false,
+            height: 400,
+            width: 700,
+            buttons: {
+                "Ok": function () {
+                    $.ajax({
+                                crossDomain: true,
+                                type:"POST",
+                                contentType: "application/json; charset=utf-8",
+                                async:false,
+                                url: "https://edurp.asia.edu.tw/parent/HandleStdAprv.ashx?callback=?",
+                                data: { PNo: PNo, enStdNo: enStdNo, R: 'OK' },
+                                dataType: "jsonp",
+                                jsonpCallback: 'jsonp_callback'
+                            })
+                    , $(this).dialog('close');
+                },
+                "Cancel": function () {
+                    $.ajax({
+                        crossDomain: true,
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        url: "https://edurp.asia.edu.tw/parent/HandleStdAprv.ashx?callback=?",
+                        data: { PNo: PNo, enStdNo: enStdNo, R: 'Cancel' },
+                        dataType: "jsonp",
+                        jsonpCallback: 'jsonp_callback'
+                    }),
+                    $(this).dialog('close');
+                }
+                , "Pass": function () {
+                    $(this).dialog('close');
+                }
+            },
+            modal: true
+        });
+        // Give an ID attribute to the 'Ok' Button.
+        $('.ui-dialog-buttonpane button:contains(Ok)').attr("id", "dialog-confirm_ok-button");
+
+        // Change text of 'Ok' button by its ID given above.
+        $('#dialog-confirm_ok-button').html("同意");
+        $('#dialog-confirm_ok-button').css('width', '70px')
+        // Give an ID attribute to the 'Cancel' Button.
+        $('.ui-dialog-buttonpane button:contains(Cancel)').attr("id", "dialog-confirm_cancel-button");
+
+        // Change text of 'Cancel' button by its ID given above.
+        $('#dialog-confirm_cancel-button').html("不同意");
+        $('#dialog-confirm_cancel-button').css('width', '70px')
+
+        $('.ui-dialog-buttonpane button:contains(Pass)').attr("id", "dialog-confirm_pass-button");
+
+        // Change text of 'Cancel' button by its ID given above.
+        $('#dialog-confirm_pass-button').html("下次處理");
+        $('#dialog-confirm_pass-button').css('width', '70px')
+        return false;
+    });
+    //callback回來呼叫的function
+    function jsonp_callback(data) {
+            alert(data[0].msg);
+        }
+</script>
+<script type="text/javascript" src="./STSY_files/dropdowntab.js.下載">
+
+/***********************************************
+* Drop Down Tab Menu- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+
+***********************************************/
+
+</script>
+<script language="javascript" type="text/javascript">
+    function query01(href1) {
+        var lstr = ""
+        lstr = "main.asp?smtr=" + smtr.value + "&cancel=Edit&" + href1;
+        //alert (lstr)
+        window.location.replace(lstr);
+}
+</script>
+
+</head>
+<body>
+<div id="modal_dialog" style="display: none">
+<!--<div id="modal_dialog" >-->
+    <table>
+        <tbody><tr>
+            <td colspan="4">同學，您好：
+            </td>
+        </tr>
+       <tr>
+            <td>
+            </td>
+            <td colspan="3">
+            亞洲大學（以下稱本校）依據個人資料保護法規定，未來在校期間對於貴同學個人資料之蒐集、處理及利用，應向您告知下列事項，請您詳閱：
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div id="ContentPlaceHolder1_Panel1" style="height:200px;width:100%;overflow:auto;">
+                <table cellspacing="1" cellpadding="1" bgcolor="#fdfcdf" border="0">
+                    <tbody><tr>
+                        <td>
+                        </td>
+                        <td>一
+                        </td>
+                        <td>、
+                        </td>
+                        <td>蒐集、處理及利用之目的：
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>教學及行政、資（通）訊與資料庫管理、學生資料管理、家長關懷學生在校學習(課程、成績)暨生活(操行、獎懲、缺曠)、學生健康資料管理、其他經營合於營業登記項目或組織章程等，為辦理教學、研究、行政及服務等相關事宜所需。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>二
+                        </td>
+                        <td>、
+                        </td>
+                        <td>蒐集、處理及利用之個人資料類別：
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>1.
+                        </td>
+                        <td>學生：姓名、身分證字號、學號、系級、學生手機電話、住址與其他。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>2.
+                        </td>
+                        <td>學生配偶、父母或監護人：姓名、身分證字號、手機電話、住址與其他。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td valign="top">3.
+                        </td>
+                        <td>申辦類別證明文件：身障手冊、低收及中低收入戶證明、特殊境遇家庭子女證明、全戶戶籍謄本、撫卹金證書與其他。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>三
+                        </td>
+                        <td>、
+                        </td>
+                        <td>個人資料利用之期間、地區、對象及方式：
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>1.
+                        </td>
+                        <td>期間：個人資料蒐集之特定目的存續期間，依相關法令之保存所訂保存年限或本校因執行教學、行政相關業務所必需之保存期間。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>2.
+                        </td>
+                        <td>地區：本國籍與本校有業務往來之國內外機構營業處所所在地。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>3.
+                        </td>
+                        <td>對象：本校教學行政相關業務人員、依法有調查權機關、主管行政機關。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>4.
+                        </td>
+                        <td>方式：以自動化機器或其他非自動化之方式，依誠實及信用方法利用。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>四
+                        </td>
+                        <td>、
+                        </td>
+                        <td>依據個資法規定，您就個人資料依個資法規定得行使下列權利，不得預先拋棄或以特約限制之：
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>1.
+                        </td>
+                        <td>得向本校查詢、請求閱讀或請求給複製本，惟本校規定得本人拿取證件申請。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>2.
+                        </td>
+                        <td>得向本校請求補充或更正，惟依法您應為適當之釋明。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>3.
+                        </td>
+                        <td>得向本校請求停止蒐集、處理或利用及請求刪除，惟依法本校因執行業務所必須者，得不依請求為之。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>五
+                        </td>
+                        <td>、
+                        </td>
+                        <td>您得自由選擇是否提供相關個人資料，惟您若拒絕提供相關個人資料，本校將無法進行必要之審核及處理作業，致無法提供您相關事項之申請與辦理。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>六
+                        </td>
+                        <td>、
+                        </td>
+                        <td>您瞭解此一同意書符合個人資料保護法及相關法規之要求，具有書面同意本校蒐集、處理及使用您的個人資料之效果。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>七
+                        </td>
+                        <td>、
+                        </td>
+                        <td>本同意書如有未盡事宜，依個人資料保護法及其他相關法規之規定辦理。
+                        </td>
+                    </tr>   
+                    <tr>
+                        <td colspan="4">
+                        本同意書如有未盡事宜，依個人資料保護法及其他相關法規之規定辦理。
+                        </td>
+                    </tr>                                      
+                </tbody></table>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td colspan="2">
+            您的家長（監護人）為<span style="background:yellow;"></span>，有申請本校家長關懷網系統，需確認您與他（她）的關係是否為<span style="background:yellow;"></span>，為避免學生個人資料遭受外界有心人士冒用竊取，經學校告知，本人已瞭解及確認上述事項，並同意開放上述個人資料使用於家長關懷系統中，請於下方勾選同意或不同意
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+<div id="wrapper">
+	<div id="header">
+		
+	</div>
+	<div id="leftcolumn">
+		
+<!--<ul id="navmenu">-->
+<div id="shademenu" class="shadetabs">
+<ul>
+    <li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0MiwxLDEwNzAyMTA0NyxOVGt6TmpJME1nLDI4MzY0MTcwOQ" title="網站地圖" accesskey="W">網站地圖</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0MiwyLDEwNzAyMTA0NyxOVGt6TmpJME1nLDI4MzY0MTcwOQ" title="學期課表">學期課表</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/autostd.asp" title="密碼更改">密碼更改</a></li>
+	<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw1OTM2MjQyLDEwNzAyMTA0NyxOVGt6TmpJME1nLDI4MzY0MTcwOQ" rel="dropmenu3" title="成績資訊">成績資訊<img src="./STSY_files/dropindicate.gif" style="border: 0; padding-left: 5px"></a></li>
+    
+	<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw1OTM2MjQyLDEwNzAyMTA0NyxOVGt6TmpJME1nLDI4MzY0MTcwOQ" rel="recquery" title="各項紀錄">各項紀錄<img src="./STSY_files/dropindicate.gif" style="border: 0; padding-left: 5px"></a></li>
+
+	
+	<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw1OTM2MjQyLDEwNzAyMTA0NyxOVGt6TmpJME1nLDI4MzY0MTcwOQ" rel="apply" title="各項申請">各項申請<img src="./STSY_files/dropindicate.gif" style="border: 0; padding-left: 5px"></a></li>
+	
+	<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw1OTM2MjQyLDEwNzAyMTA0NyxOVGt6TmpJME1nLDI4MzY0MTcwOQ" rel="appmenu" title="應用系統">應用系統<img src="./STSY_files/dropindicate.gif" style="border: 0; padding-left: 5px"></a></li>
+	
+	<!--<li><a href="?FID=NTkzNjI0Miw1OTM2MjQyLDEwNzAyMTA0NyxOVGt6TmpJME1nLDI4MzY0MTcwOQ">學生資料</a></li>-->
+    <li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw1OTM2MjQyLDEwNzAyMTA0NyxOVGt6TmpJME1nLDI4MzY0MTcwOQ" rel="studerinfo" title="學生資料">學生資料<img src="./STSY_files/dropindicate.gif" style="border: 0; padding-left: 5px"></a></li>
+	
+	<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw1OTM2MjQyLDEwNzAyMTA0NyxOVGt6TmpJME1nLDI4MzY0MTcwOQ" rel="teacherchk" title="教師、導師滿意度調查">教師、導師滿意度調查<img src="./STSY_files/dropindicate.gif" style="border: 0; padding-left: 5px"></a></li>
+    		
+	<li><a href="https://webs.asia.edu.tw/stdinfo/logout.asp">登出</a></li>
+</ul>
+</div>
+
+<div id="dropmenu3" class="dropmenudiv">
+	<ul>
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw0MywxMDcwMjEwNDcsTlRrek5qSTBNZywyODM2NDE3MDk">期中成績</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw1LDEwNzAyMTA0NyxOVGt6TmpJME1nLDI4MzY0MTcwOQ">歷年成績</a></li>
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MDQsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="班級學期排名(含轉學生)">班級學期排名(含轉學生)</a></li>
+		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MDUsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="系所學期排名(含轉學生)">系所學期排名(含轉學生)</a></li>
+		
+		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MDksMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="查詢畢業基本能力通過情形">查詢畢業基本能力通過情形</a></li>		
+		
+		
+		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MTQsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="畢業審查初審">畢業審查初審</a></li>	
+				
+		
+	</ul>
+</div>
+
+
+
+<div id="apply" class="dropmenudiv">
+	<ul>
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw2MSwxMDcwMjEwNDcsTlRrek5qSTBNZywyODM2NDE3MDk" title="弱勢學生助學計畫申請">弱勢學生助學計畫申請</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw2OCwxMDcwMjEwNDcsTlRrek5qSTBNZywyODM2NDE3MDk" title="列印繳費單">列印繳費單</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw2ODEsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="列印代收費用繳費單">列印代收費用繳費單</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw2OSwxMDcwMjEwNDcsTlRrek5qSTBNZywyODM2NDE3MDk" title="補印繳費收據">補印繳費收據</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw2OTEsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="代收費用繳費證明單">代收費用繳費證明單</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw3NCwxMDcwMjEwNDcsTlRrek5qSTBNZywyODM2NDE3MDk" title="抵免申請結果查詢">抵免申請結果查詢</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0MiwxMDIsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="銀行帳號資料">銀行帳號資料</a></li><li><a href="http://webs.asia.edu.tw/StdCert_Apply/Default.aspx?sa=OTgwMzAyMjk0&amp;sd=MTA3MDIxMDQ3&amp;si=MjgzNjQxNzA5" target="_blank" title="證照獎/補助申請">證照獎/補助申請</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0MiwxMDMsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="停修申請">停修申請</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0MiwxMTAsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="學程申請">學程申請</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0MiwxMDUsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="減修申請">減修申請</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0MiwxMDcsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="休學申請">休學申請</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0MiwxMDgsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="轉退學申請">轉退學申請</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0MiwxMDksMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="續休申請">續休申請</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4ODYsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="線上在學證明申請">線上在學證明申請</a></li>
+	</ul>
+</div>
+
+<div id="studerinfo" class="dropmenudiv">
+	<ul>
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw5MDEsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="學生綜合資料表">學生綜合資料表</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw5MDUsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="學生校外賃居調查表">學生校外賃居調查表</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw5MDMsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="查詢班級導師/曼陀師">查詢班級導師/曼陀師</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw5MDQsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="查詢論文指導教授">查詢論文指導教授</a></li>
+	</ul>
+</div>
+
+
+
+<div id="teacherchk" class="dropmenudiv">
+	<ul>
+		
+	</ul>
+</div>
+
+<div id="recquery" class="dropmenudiv">
+	<ul>
+		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MTIsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="參加通識講座紀錄">參加通識講座紀錄</a></li>
+		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MDMsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="請假缺曠紀錄查詢">請假缺曠紀錄查詢</a></li>		
+		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MjEsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="個人獎懲紀錄查詢">個人獎懲紀錄查詢</a></li>		
+		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MjIsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="擔任班級幹部紀錄查詢">擔任班級幹部紀錄查詢</a></li>		
+        
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MjMsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="志願服務時數查詢">志願服務時數查詢</a></li>        
+		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MjUsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="宿舍輔導記錄查詢">宿舍輔導記錄查詢</a></li>		
+				
+        <li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MTUsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="教學回饋意見分析回應查詢">教學回饋意見分析回應查詢</a></li>		
+		
+				
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MTYsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="停修申請結果查詢">停修申請結果查詢</a></li>	
+
+
+
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MjQsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="學程選擇結果查詢">學程選擇結果查詢</a></li>		
+		<!--<li><a href="?FID=NTkzNjI0Miw4MjQsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="學程選擇結果查詢">學程選擇結果查詢</a></li>-->
+
+
+
+        		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MTgsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="服學證書編號查詢">服學證書編號查詢</a></li>
+
+				
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4ODcsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="休學申請結果查詢">休學申請結果查詢</a></li>	
+
+        		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4ODgsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="轉、退學申請結果查詢">轉、退學申請結果查詢</a></li>	
+        
+        		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4ODksMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="續休申請結果查詢">續休申請結果查詢</a></li>	
+
+        <li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MTksMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="曼陀師建議課程查詢">曼陀師建議課程查詢</a></li><li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw4MjAsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="減修申請結果查詢">減修申請結果查詢</a></li>		
+		<!--<li><a href="?FID=NTkzNjI0Miw4MjQsMTA3MDIxMDQ3LE5Ua3pOakkwTWcsMjgzNjQxNzA5" title="預選第二學程結果查詢">預選第二學程結果查詢</a></li>-->
+
+        	
+		</ul>
+</div>
+
+<div id="appmenu" class="dropmenudiv">
+	<ul>
+		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw3MywxMDcwMjEwNDcsTlRrek5qSTBNZywyODM2NDE3MDk" title="抵免申請">抵免申請</a></li>
+		
+		<li><a href="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0Miw3NSwxMDcwMjEwNDcsTlRrek5qSTBNZywyODM2NDE3MDk" title="空教室查詢">空教室查詢</a></li>
+
+		
+		<li><a href="http://webs.asia.edu.tw/courseinfo/" target="_blank" title="課程資訊系統">課程資訊系統</a></li>
+		<li><a href="http://course.asia.edu.tw/" target="_blank" title="選課系統">選課系統</a></li>
+
+		<li><a href="https://edurp.asia.edu.tw/stdleave/pass.aspx?FID=3boYhfGjMgRoyX3dwK35Kw==" target="_blank" title="學生請假系統">學生請假系統</a></li>
+        <li><a href="http://mentors.asia.edu.tw/login.aspx" target="_blank" title="選課輔導系統">選課輔導系統</a></li>
+	</ul>
+</div>
+
+<script type="text/javascript">
+tabdropdown.initializetabmenu("shademenu")
+</script>
+
+
+	</div>
+	<div id="centercolumn">	
+		
+
+<div align="center"></div>
+
+
+<script id="clientEventHandlersJS" language="javascript" type="text/javascript">
+
+    function showrpt() {
+
+        //var smtr=document.form2.smtr.value ;
+
+        // 用document.form2.smtr.value會使chrome無反應，故改用下行寫法取得學年期
+        var smtr = document.getElementById("smtr").value;
+        var seltxt = "107021047";
+
+        var url01 = "rpt/asycoslessonrpt.asp?smtr=" + smtr + "&sel_txt=" + seltxt;
+        window.open(url01, 'ASIA', 'directories=0 height=800 width=1000 top=0 left=0 menubar=0 resizable=0 scrollbars=0');
+        return false;
+    }
+
+    function tab1Over(o) {
+        o.style.backgroundColor = "#FFFFAA";
+    }
+
+    function tab1Out(o, bbcolor) {
+        o.style.backgroundColor = bbcolor;
+    }
+
+    function sendto(std) {
+
+        var url01 = "http://webap.asia.edu.tw/cosinfo/remail.aspx?stdnoxxllwwqqeerr=" + std;
+        window.open(url01, 'ASIA', 'directories=0 height=150 width=200 top=0 left=0 menubar=0 resizable=0 scrollbars=0');
+        return false;
+    }
+
+</script>
+
+<div align="center">
+
+    <form id="form2" name="form1" method="post" action="https://webs.asia.edu.tw/stdinfo/main.asp?FID=NTkzNjI0MiwyLDEwNzAyMTA0NyxOVGt6TmpJME1nLDI4MzY0MTcwOQ">
+
+        <p>課表學年期(Academic Year And Semester)：
+        
+<select name="smtr" id="smtr"><option value="1081" selected="">1081</option><option value="1076">1076</option><option value="1075">1075</option><option value="1074">1074</option><option value="1073">1073</option><option value="1072">1072</option><option value="1071">1071</option><option value="1065">1065</option><option value="1064">1064</option><option value="1063">1063</option><option value="1062">1062</option><option value="1061">1061</option><option value="1056">1056</option><option value="1055">1055</option><option value="1054">1054</option><option value="1053">1053</option><option value="1052">1052</option><option value="1051">1051</option><option value="1045">1045</option><option value="1044">1044</option><option value="1043">1043</option><option value="1042">1042</option><option value="1041">1041</option><option value="1035">1035</option><option value="1034">1034</option><option value="1033">1033</option><option value="1032">1032</option><option value="1031">1031</option><option value="1025">1025</option><option value="1024">1024</option><option value="1023">1023</option><option value="1022">1022</option><option value="1021">1021</option><option value="1016">1016</option><option value="1015">1015</option><option value="1014">1014</option><option value="1013">1013</option><option value="1012">1012</option><option value="1011">1011</option><option value="1005">1005</option><option value="1004">1004</option><option value="1003">1003</option><option value="1002">1002</option><option value="1001">1001</option><option value="0995">0995</option><option value="0994">0994</option><option value="0993">0993</option><option value="0992">0992</option><option value="0991">0991</option><option value="0985">0985</option><option value="0984">0984</option><option value="0983">0983</option><option value="0982">0982</option><option value="0981">0981</option><option value="0974">0974</option><option value="0973">0973</option><option value="0972">0972</option><option value="0971">0971</option><option value="0964">0964</option><option value="0963">0963</option><option value="0962">0962</option><option value="0961">0961</option><option value="0952">0952</option><option value="0951">0951</option><option value="0942">0942</option><option value="0941">0941</option><option value="0932">0932</option><option value="0931">0931</option><option value="0922">0922</option><option value="0921">0921</option><option value="0912">0912</option><option value="0911">0911</option><option value="0902">0902</option><option value="0901">0901</option></select>
+            &nbsp;&nbsp;
+            <input type="submit" name="cancel" value="查詢(Query)">
+            &nbsp;&nbsp;
+            <input type="button" id="print" value="課表列印" onclick="showrpt();">
+        </p>
+        
+        <p>
+            <b>
+                <!--<font color="red" size="3">1032學年期課表 將於104/2/10(二) 上午10:10 開放查詢 預選結果</font>-->
+                <!--<font color="red" size="3">1041學年期課表 將於104/7/13(一) 上午10:00 開放查詢 預選結果</font>-->
+                <!--<font color="red" size="3">1041學年期課表</font>-->
+            </b>
+        </p>
+		
+        <p>
+            <b>
+                <font color="#80000" size="3">1081</font>
+                <font color="#00CC99" size="3">
+                    【學期選課清單】<!--N-->資訊工程學系2B
+                    <br>
+		            Name：鄭嘉豪&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Student ID：107021047
+                </font>
+            </b> 
+        </p>
+        
+        <br>
+		
+
+        
+        <!--
+		<b><font color="#880000" size=2> 1002學期 預選抽籤結果 </font></b> 已寄到 Live@edu 信箱 
+        <br />
+		Account: 107021047@live.asia.edu.tw
+		<font color="#880000" size=2>請進入<a href="https://login.live.com/login.srf">Live@Edu(密碼同學生資訊系統)</a> 查看</font>
+        <br />
+		<input type="button" id=Button1 value="補寄Mail" onclick="sendto('107021047')"> 1081 0= 1081
+        -->
+
+	</form>
+
+
+<!--</p>-->
+
+    <!--SELECT cos_id=s.sel_cos_id,cos_class=s.sel_cos_class,p.cos_credit,cos_cname=case when j.sel_std_num >e.max_std then ' ' else '' end+p.cos_cname,p.cos_ename,tch_name=isnull(i.all_tch,''),schd_time=case when c.schd_time='' then '0' else isnull(c.schd_time,'0') end,room_name=case when g.room_name='s002' then '' else g.room_name end,Cos_sel_type=f.cos_type_name_s,cos_memo=e.memo FROM cos_smtrcos e left join cos_smtr_stdregi s on s.sel_smtr=e.cos_smtr and s.sel_cos_id=e.cos_id and s.sel_cos_class=e.cos_class left join perm_course p on s.sel_cos_id=p.cos_id left join cos_smtr_schd c on c.schd_smtr=e.cos_smtr and c.schd_cos_id=e.cos_id and c.schd_cos_class=e.cos_class left join cos_dat_teacher d on c.schd_teacherid =d.tch_id left join cos_type_list f on e.cos_sel_type=f.cos_type left join room_base g on c.schd_room_id =g.room_id left join openCourse_tmp i on s.sel_smtr=i.cos_smtr and s.sel_cos_id=i.cos_id and s.sel_cos_class=i.cos_class left join cos_smtr_stdnum j on e.cos_smtr=j.regi_smtr and e.cos_id=j.regi_cos_id and e.cos_class=j.regi_cos_class WHERE s.sel_smtr='1081' AND s.sel_std_no='107021047'-->
+    <table border="1" cellspacing="0" bordercolor="#333333" bgcolor="#FFEBD7" style="border-collapse:collapse;">
+<tbody><tr hight="30" align="center" bgcolor="#C8DDF2">
+<td colspan="8"><font color="#008080" size="3"><b> 本學期總學分數：</b></font><font color="#0000FF" size="3"><b> 19 學分 </b></font></td>
+</tr>
+
+        <tr align="center" bgcolor="#C8DDF2">
+
+            <!--
+            <td width="100"><font color='#666666'><b>時間 / 節次</b></font></td>
+            <td width="120"><font color='#666666'><b>週一</b></font></td>
+            <td width="120"><font color='#666666'><b>週二</b></font></td>
+            <td width="120"><font color='#666666'><b>週三</b></font></td>
+            <td width="120"><font color='#666666'><b>週四</b></font></td>
+            <td width="120"><font color='#666666'><b>週五</b></font></td>
+            <td width="80"><font color='#666666'><b>週六</b></font></td>
+            <td width="80"><font color='#666666'><b>週日</b></font></td>
+            -->
+
+            <td width="100"><font color="#000000">Time / Sections</font></td>
+            <td width="80"><font color="#000000">SUN</font></td>
+            <td width="120"><font color="#000000">MON</font></td>
+            <td width="120"><font color="#000000">TUE</font></td>
+            <td width="120"><font color="#000000">WED</font></td>
+            <td width="120"><font color="#000000">THU</font></td>
+            <td width="120"><font color="#000000">FRI</font></td>
+            <td width="80"><font color="#000000">SAT</font></td>
+
+
+        </tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>08:10-09:00 / 1</td><td></td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=GRG00252&amp;mCos_Class=A&amp;mSmtr=1081">共通專業英語文：資訊英文-高級(A)</a></b><br>English for Science and Technology- Advanced level<br>黃保羅 老師<br> Credits:2 <br>Classroom:HB76<br><br></td><td></td><td></td><td></td><td></td></tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>09:10-10:00 / 2</td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300063&amp;mCos_Class=B&amp;mSmtr=1081">人機互動概論(B)</a></b><br>Introduction to Human-Computer Interaction<br>何承遠 老師<br> Credits:3 <br>Classroom:I533<br><br></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=GRG00252&amp;mCos_Class=A&amp;mSmtr=1081">共通專業英語文：資訊英文-高級(A)</a></b><br>English for Science and Technology- Advanced level<br>黃保羅 老師<br> Credits:2 <br>Classroom:HB76<br><br></td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300031&amp;mCos_Class=A&amp;mSmtr=1081">HTML 5 Web APP 設計與開發(A)</a></b><br>Design and Development of HTML 5 Web APP<br>周永振 老師<br> Credits:3 <br>Classroom:H103<br><br></td><td></td><td></td></tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>10:10-11:00 / 3</td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300063&amp;mCos_Class=B&amp;mSmtr=1081">人機互動概論(B)</a></b><br>Introduction to Human-Computer Interaction<br>何承遠 老師<br> Credits:3 <br>Classroom:I533<br><br></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300071&amp;mCos_Class=A&amp;mSmtr=1081">多媒體網站技術應用(A)</a></b><br>Multimedia Web Technologies<br>陳瑞奇 老師<br> Credits:3 <br>Classroom:H103<br><br></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=GOG00433&amp;mCos_Class=A&amp;mSmtr=1081">報導文學(含實作)-1(A)</a></b><br>Reportage(including practice)<br>賴昭吟 老師<br> Credits:2 <br>Classroom:L001<br><br></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300031&amp;mCos_Class=A&amp;mSmtr=1081">HTML 5 Web APP 設計與開發(A)</a></b><br>Design and Development of HTML 5 Web APP<br>周永振 老師<br> Credits:3 <br>Classroom:H103<br><br></td><td></td><td></td></tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>11:10-12:00 / 4</td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300063&amp;mCos_Class=B&amp;mSmtr=1081">人機互動概論(B)</a></b><br>Introduction to Human-Computer Interaction<br>何承遠 老師<br> Credits:3 <br>Classroom:I533<br><br></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300071&amp;mCos_Class=A&amp;mSmtr=1081">多媒體網站技術應用(A)</a></b><br>Multimedia Web Technologies<br>陳瑞奇 老師<br> Credits:3 <br>Classroom:H103<br><br></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=GOG00433&amp;mCos_Class=A&amp;mSmtr=1081">報導文學(含實作)-1(A)</a></b><br>Reportage(including practice)<br>賴昭吟 老師<br> Credits:2 <br>Classroom:L001<br><br></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300031&amp;mCos_Class=A&amp;mSmtr=1081">HTML 5 Web APP 設計與開發(A)</a></b><br>Design and Development of HTML 5 Web APP<br>周永振 老師<br> Credits:3 <br>Classroom:H103<br><br></td><td></td><td></td></tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>12:10-13:00 / N</td><td></td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300071&amp;mCos_Class=A&amp;mSmtr=1081">多媒體網站技術應用(A)</a></b><br>Multimedia Web Technologies<br>陳瑞奇 老師<br> Credits:3 <br>Classroom:H103<br><br></td><td></td><td></td><td></td><td></td></tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>13:10-14:00 / 5</td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=GSG00025&amp;mCos_Class=C&amp;mSmtr=1081">體育(三)-籃球(C)</a></b><br>Physical Education(3)-Basketball<br>林俊卿 老師<br> Credits:0 <br>Classroom:體育場<br><br></td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300058&amp;mCos_Class=B&amp;mSmtr=1081">資料結構(B)</a></b><br>Data Structures<br>呂威甫 老師<br> Credits:3 <br>Classroom:I533<br><br></td><td></td><td></td><td></td></tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>14:10-15:00 / 6</td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=GSG00025&amp;mCos_Class=C&amp;mSmtr=1081">體育(三)-籃球(C)</a></b><br>Physical Education(3)-Basketball<br>林俊卿 老師<br> Credits:0 <br>Classroom:體育場<br><br></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300057&amp;mCos_Class=B&amp;mSmtr=1081">視窗程式設計(B)</a></b><br>Windows Programming<br>周永振 老師<br> Credits:3 <br>Classroom:H103<br><br></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300058&amp;mCos_Class=B&amp;mSmtr=1081">資料結構(B)</a></b><br>Data Structures<br>呂威甫 老師<br> Credits:3 <br>Classroom:I533<br><br></td><td></td><td></td><td></td></tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>15:10-16:00 / 7</td><td></td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300057&amp;mCos_Class=B&amp;mSmtr=1081">視窗程式設計(B)</a></b><br>Windows Programming<br>周永振 老師<br> Credits:3 <br>Classroom:H103<br><br></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300058&amp;mCos_Class=B&amp;mSmtr=1081">資料結構(B)</a></b><br>Data Structures<br>呂威甫 老師<br> Credits:3 <br>Classroom:I533<br><br></td><td></td><td></td><td></td></tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>16:10-17:00 / 8</td><td></td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=EE300057&amp;mCos_Class=B&amp;mSmtr=1081">視窗程式設計(B)</a></b><br>Windows Programming<br>周永振 老師<br> Credits:3 <br>Classroom:H103<br><br></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_guidan.asp?mCos_id=EE300038&amp;mCos_Class=B&amp;mSmtr=1081">學輔時間(二)(B)</a></b><br>Students Guidance and Advising Hours<br>周永振 老師<br> Credits:0 <br>Classroom:H103<br><br></td><td></td><td></td><td></td></tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>18:00-18:30 / E</td><td></td><td></td><td></td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=GRG00131&amp;mCos_Class=A&amp;mSmtr=1081">服務與學習(二)-講授課(A)</a></b><br>Service and Learning(2)-Lecture<br>賴昭吟 老師<br> Credits:0 <br>Classroom:A101<br><br></td><td></td><td></td></tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>18:30-19:15 / 10</td><td></td><td></td><td></td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=GRG00131&amp;mCos_Class=A&amp;mSmtr=1081">服務與學習(二)-講授課(A)</a></b><br>Service and Learning(2)-Lecture<br>賴昭吟 老師<br> Credits:0 <br>Classroom:A101<br><br></td><td></td><td></td></tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>19:25-20:10 / 11</td><td></td><td></td><td></td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=GRG00131&amp;mCos_Class=A&amp;mSmtr=1081">服務與學習(二)-講授課(A)</a></b><br>Service and Learning(2)-Lecture<br>賴昭吟 老師<br> Credits:0 <br>Classroom:A101<br><br></td><td></td><td></td></tr>
+<tr align="center" bgcolor="#E9FFE7">
+<td>20:20-21:05 / 12</td><td></td><td></td><td></td><td></td><td><b><a target="_blank" href="https://webs.asia.edu.tw/courseinfo/course_outline_S2.asp?mCos_id=GRG00131&amp;mCos_Class=A&amp;mSmtr=1081">服務與學習(二)-講授課(A)</a></b><br>Service and Learning(2)-Lecture<br>賴昭吟 老師<br> Credits:0 <br>Classroom:A101<br><br></td><td></td><td></td></tr>
+
+		<tr align="center" bgcolor="#C8DDF2">
+		    <td colspan="8"><font color="#008080" size="3"><b> 收費標準請依會計室公告為準。</b></font></td>
+		</tr>
+		
+	</tbody></table>
+		        
+	<br>
+
+
+
+</div>
+
+
+	</div>
+	<div id="footer">
+        <p align="center">系統問題請洽資訊處:(04)2332-3456 轉 3513</p>
+
+
+<p align="center">亞洲大學&nbsp;&nbsp;&nbsp;，本系統最佳瀏覽解析度：1024 x 768	</p>
+
+	</div>
+</div>
+
+
+</body></html>
